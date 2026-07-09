@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profil · Aurélie</title>
+  <meta name="description" content="Profil einer verifizierten Begleiterin bei Aurélie.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="index.html">Aurélie<span class="dot">.</span></a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="browse.html">Begleiterinnen</a></li>
+          <li><a href="index.html#so">So funktioniert es</a></li>
+          <li><a href="index.html#staedte">Städte</a></li>
+          <li><a href="impressum.html">Kontakt</a></li>
+        </ul>
+      </nav>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="browse.html">Entdecken</a>
+        <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false" data-icon="menu"></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap section" style="padding-top:2rem">
+    <a href="browse.html" style="display:inline-flex;align-items:center;gap:.4rem;color:var(--text-muted);font-size:.9rem;margin-bottom:1.5rem">&larr; Zurück zur Übersicht</a>
+    <div id="profile-root"></div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-bottom" style="border-top:0;margin-top:0">
+        <span>&copy; <span data-year></span> Aurélie. Prototyp und Beispielprojekt.</span>
+        <span><a href="impressum.html">Impressum</a> &middot; <a href="datenschutz.html">Datenschutz</a> &middot; <a href="agb.html">AGB</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/site.js"></script>
+  <script src="js/profile.js"></script>
+</body>
+</html>
