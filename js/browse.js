@@ -23,11 +23,11 @@
   } catch (e) {
     results.innerHTML =
       `<div class="empty" style="grid-column:1/-1">${ESC.icons.info}
-       <p>Profile konnten nicht geladen werden.</p></div>`;
+       <p>Profiles could not be loaded.</p></div>`;
     return;
   }
 
-  const uniq = (arr) => [...new Set(arr)].sort((a, b) => a.localeCompare(b, "de"));
+  const uniq = (arr) => [...new Set(arr)].sort((a, b) => a.localeCompare(b, "en"));
   const cities = uniq(providers.map((p) => p.city));
   const languages = uniq(providers.flatMap((p) => p.languages));
   const services = uniq(providers.flatMap((p) => p.services));
@@ -42,24 +42,24 @@
     </div>`;
 
   filtersEl.insertAdjacentHTML("beforeend", `
-    ${group("Stadt", "city", cities)}
-    ${group("Sprache", "lang", languages)}
+    ${group("City", "city", cities)}
+    ${group("Language", "lang", languages)}
     ${group("Services", "svc", services)}
-    <h3>Preis pro Stunde</h3>
+    <h3>Price per hour</h3>
     <div class="filter-group">
-      <select id="f-price" aria-label="Maximaler Stundenpreis">
-        <option value="0">Alle Preise</option>
-        <option value="200">bis ${ESC.eur(200)}</option>
-        <option value="250">bis ${ESC.eur(250)}</option>
-        <option value="300">bis ${ESC.eur(300)}</option>
+      <select id="f-price" aria-label="Maximum hourly price">
+        <option value="0">All prices</option>
+        <option value="200">up to ${ESC.eur(200)}</option>
+        <option value="250">up to ${ESC.eur(250)}</option>
+        <option value="300">up to ${ESC.eur(300)}</option>
       </select>
     </div>
-    <h3>Sonstiges</h3>
+    <h3>Other</h3>
     <div class="filter-group">
-      <label class="check"><input type="checkbox" id="f-verified"> Nur verifizierte Profile</label>
+      <label class="check"><input type="checkbox" id="f-verified"> Verified profiles only</label>
     </div>
     <div class="filter-group" style="margin-top:1.4rem">
-      <button type="button" class="btn btn-ghost btn-block" id="f-reset">Filter zurücksetzen</button>
+      <button type="button" class="btn btn-ghost btn-block" id="f-reset">Reset filters</button>
     </div>
   `);
 
@@ -101,13 +101,13 @@
     else if (sort === "price-desc") out.sort((a, b) => b.rates.hour - a.rates.hour);
     else if (sort === "newest") out.sort((a, b) => b.joined.localeCompare(a.joined));
 
-    countEl.innerHTML = `<b>${out.length}</b> ${out.length === 1 ? "Begleiterin" : "Begleiterinnen"}`;
+    countEl.innerHTML = `<b>${out.length}</b> ${out.length === 1 ? "companion" : "companions"}`;
 
     if (!out.length) {
       results.innerHTML =
         `<div class="empty" style="grid-column:1/-1">${ESC.icons.search}
-         <p>Keine Profile entsprechen Ihren Filtern.</p>
-         <button class="btn btn-ghost" id="empty-reset" style="margin-top:1rem">Filter zurücksetzen</button></div>`;
+         <p>No profiles match your filters.</p>
+         <button class="btn btn-ghost" id="empty-reset" style="margin-top:1rem">Reset filters</button></div>`;
       document.getElementById("empty-reset").addEventListener("click", reset);
       return;
     }

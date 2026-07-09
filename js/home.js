@@ -12,6 +12,6 @@
   } catch (e) {
     grid.innerHTML =
       `<div class="empty" style="grid-column:1/-1">${ESC.icons.info}
-       <p>Profile konnten nicht geladen werden. Bitte laden Sie die Seite neu.</p></div>`;
+       <p>Profiles could not be loaded. Please reload the page.</p></div>`;
   }
 })();

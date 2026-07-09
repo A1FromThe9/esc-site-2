@@ -11,8 +11,8 @@
   if (!p) {
     root.innerHTML = `
       <div class="empty">${ESC.icons.info}
-        <p>Dieses Profil wurde nicht gefunden.</p>
-        <a class="btn btn-ghost" href="browse.html" style="margin-top:1rem">Alle Begleiterinnen ansehen</a>
+        <p>This profile could not be found.</p>
+        <a class="btn btn-ghost" href="browse.html" style="margin-top:1rem">View all companions</a>
       </div>`;
     return;
   }
@@ -20,24 +20,24 @@
   document.title = `${p.name}, ${p.city} · Aurélie`;
 
   const verified = p.verified
-    ? `<span class="badge-verified" style="position:static">${ESC.icons.shield} Verifiziert</span>` : "";
+    ? `<span class="badge-verified" style="position:static">${ESC.icons.shield} Verified</span>` : "";
 
   const gallery = `
     <div class="gallery">
       <figure class="g-main" data-full="${ESC.photo(p.photos[0], 1200, 900)}">
-        <img src="${ESC.photo(p.photos[0], 900, 675)}" alt="${p.name}, Foto 1">
+        <img src="${ESC.photo(p.photos[0], 900, 675)}" alt="${p.name}, photo 1">
       </figure>
       ${p.photos.slice(1).map((seed, i) => `
         <figure data-full="${ESC.photo(seed, 900, 1125)}">
-          <img src="${ESC.photo(seed, 500, 625)}" alt="${p.name}, Foto ${i + 2}" loading="lazy">
+          <img src="${ESC.photo(seed, 500, 625)}" alt="${p.name}, photo ${i + 2}" loading="lazy">
         </figure>`).join("")}
     </div>`;
 
   const stats = `
     <div class="stat-row">
-      <div class="stat"><div class="k">Alter</div><div class="v">${p.age}</div></div>
-      <div class="stat"><div class="k">Größe</div><div class="v">${p.height}<small> cm</small></div></div>
-      <div class="stat"><div class="k">Ort</div><div class="v" style="font-size:1.15rem">${p.city}</div></div>
+      <div class="stat"><div class="k">Age</div><div class="v">${p.age}</div></div>
+      <div class="stat"><div class="k">Height</div><div class="v">${p.height}<small> cm</small></div></div>
+      <div class="stat"><div class="k">Location</div><div class="v" style="font-size:1.15rem">${p.city}</div></div>
     </div>`;
 
   const langs = p.languages.map((l) => `<span class="chip">${l}</span>`).join("");
@@ -53,24 +53,24 @@
         <p class="prose" style="font-size:1.1rem;color:var(--text)">${p.tagline}</p>
         ${stats}
 
-        <h3 style="font-family:var(--font-ui);font-size:.78rem;text-transform:uppercase;letter-spacing:.16em;color:var(--text-faint);margin-bottom:.6rem">Über mich</h3>
+        <h3 style="font-family:var(--font-ui);font-size:.78rem;text-transform:uppercase;letter-spacing:.16em;color:var(--text-faint);margin-bottom:.6rem">About me</h3>
         <div class="prose"><p>${p.about}</p></div>
 
-        <h3 style="font-family:var(--font-ui);font-size:.78rem;text-transform:uppercase;letter-spacing:.16em;color:var(--text-faint);margin:1.5rem 0 .2rem">Sprachen</h3>
+        <h3 style="font-family:var(--font-ui);font-size:.78rem;text-transform:uppercase;letter-spacing:.16em;color:var(--text-faint);margin:1.5rem 0 .2rem">Languages</h3>
         <div class="chips">${langs}</div>
 
-        <h3 style="font-family:var(--font-ui);font-size:.78rem;text-transform:uppercase;letter-spacing:.16em;color:var(--text-faint);margin:.5rem 0 .2rem">Begleitung</h3>
+        <h3 style="font-family:var(--font-ui);font-size:.78rem;text-transform:uppercase;letter-spacing:.16em;color:var(--text-faint);margin:.5rem 0 .2rem">Companionship</h3>
         <div class="chips">${svcs}</div>
 
         <div class="booking-panel">
           <div class="rate">
             <span class="amt">${ESC.eur(p.rates.hour)}</span>
-            <span class="per">/ Stunde</span>
+            <span class="per">/ hour</span>
           </div>
-          <p class="deposit-note">Anzahlung zur Reservierung: <b>${ESC.eur(p.rates.deposit)}</b>.
-             Verfügbarkeit: ${p.availability}.</p>
+          <p class="deposit-note">Deposit to reserve: <b>${ESC.eur(p.rates.deposit)}</b>.
+             Availability: ${p.availability}.</p>
           <a class="btn btn-primary btn-block btn-lg" href="booking.html?id=${encodeURIComponent(p.id)}">
-            Termin anfragen ${ESC.icons.arrow}
+            Request a booking ${ESC.icons.arrow}
           </a>
         </div>
       </div>
