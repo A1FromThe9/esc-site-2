@@ -13,20 +13,19 @@
     gate.className = "agegate";
     gate.setAttribute("role", "dialog");
     gate.setAttribute("aria-modal", "true");
-    gate.setAttribute("aria-label", "Altersbestätigung");
+    gate.setAttribute("aria-label", "Age verification");
     gate.innerHTML = `
       <div class="box">
         <div class="brand">Aurélie<span class="dot">.</span></div>
-        <h2>Sind Sie volljährig?</h2>
-        <p>Diese Seite enthält Inhalte für Erwachsene und richtet sich ausschließlich
-           an Personen ab 18 Jahren. Mit dem Eintreten bestätigen Sie, dass Sie
-           volljährig sind.</p>
+        <h2>Are you 18 or older?</h2>
+        <p>This site contains adult content and is intended solely for persons
+           aged 18 and over. By entering, you confirm that you are of legal age.</p>
         <div class="actions">
-          <button class="btn btn-primary btn-lg" data-yes>Ich bin 18 oder älter</button>
-          <button class="btn btn-ghost" data-no>Verlassen</button>
+          <button class="btn btn-primary btn-lg" data-yes>I am 18 or older</button>
+          <button class="btn btn-ghost" data-no>Leave</button>
         </div>
-        <p class="fine">Aurélie ist eine Beispiel-Website (Prototyp). Es werden keine
-           echten Buchungen vermittelt und keine echten Zahlungen verarbeitet.</p>
+        <p class="fine">Aurélie is a demo website (prototype). No real bookings are
+           brokered and no real payments are processed.</p>
       </div>`;
     document.body.appendChild(gate);
     document.documentElement.style.overflow = "hidden";

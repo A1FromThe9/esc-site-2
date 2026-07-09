@@ -26,7 +26,7 @@ const ESC = (() => {
   }
 
   function eur(n) {
-    return new Intl.NumberFormat("de-DE", {
+    return new Intl.NumberFormat("en-GB", {
       style: "currency", currency: "EUR", maximumFractionDigits: 0,
     }).format(n);
   }

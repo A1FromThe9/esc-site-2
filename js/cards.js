@@ -2,13 +2,13 @@
 
 function providerCard(p) {
   const verified = p.verified
-    ? `<span class="badge-verified">${ESC.icons.shield} Verifiziert</span>` : "";
+    ? `<span class="badge-verified">${ESC.icons.shield} Verified</span>` : "";
   const tags = p.services.slice(0, 2)
     .map((s) => `<span class="tag">${s}</span>`).join("");
   return `
     <article class="card">
       <a class="card-link" href="profile.html?id=${encodeURIComponent(p.id)}"
-         aria-label="Profil von ${p.name} ansehen">
+         aria-label="View ${p.name}'s profile">
         <div class="card-media">
           ${verified}
           <img src="${ESC.photo(p.photos[0], 520, 700)}" alt="${p.name}, ${p.city}" loading="lazy">
@@ -18,7 +18,7 @@ function providerCard(p) {
           <div class="card-meta">
             <span>${p.city}</span>
             <span aria-hidden="true">&middot;</span>
-            <span class="price">ab ${ESC.eur(p.rates.hour)}/Std.</span>
+            <span class="price">from ${ESC.eur(p.rates.hour)}/hr</span>
           </div>
           <div class="card-tags">${tags}</div>
         </div>
