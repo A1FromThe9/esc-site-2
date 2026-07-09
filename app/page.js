@@ -69,7 +69,6 @@ export default function HomePage() {
       <Reveal className="wrap section">
         <div className="sec-head row">
           <div>
-            <p className="eyebrow">Featured</p>
             <h2>Featured this week</h2>
           </div>
           <Link className="btn btn-ghost" href="/browse">View all</Link>
